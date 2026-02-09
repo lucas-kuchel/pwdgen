@@ -8,6 +8,7 @@ namespace generator {
         std::string product;
         std::size_t length = 0;
         double entropy_bits = 0.0;
+        bool silent_generate = false;
     };
 
     void generate_password(password_state& state);

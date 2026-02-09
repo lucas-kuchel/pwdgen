@@ -35,7 +35,10 @@ namespace parser {
                 state.omitted = arg;
                 hint = next_token_hint::none;
             }
-            else if (arg == "-o" || arg == "--omit") {
+            else if (arg == "-q" || arg == "--quiet") {
+                state.silent_generate = true;
+            }
+            else if (arg == "--omit") {
                 hint = next_token_hint::omit;
             }
             else if (arg == "-l" || arg == "--length") {
