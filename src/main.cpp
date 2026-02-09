@@ -17,6 +17,7 @@ int main(int argc, char** argv) {
 
             std::println("avoid sharing your passwords with others");
             std::println("if this password appears too basic (e.g. \"aAbBcC123\") consider regenerating");
+            std::println("password score: {:.2f} bits of entropy ({})", state.entropy_bits, generator::rate_strength(state));
             std::println("{}", state.product);
 
             break;

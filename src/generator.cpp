@@ -53,5 +53,31 @@ namespace generator {
         }
 
         std::shuffle(state.product.begin(), state.product.end(), gen);
+
+        std::string password_chars = strutils::remove_duplicates(state.product);
+        std::size_t char_count = password_chars.size();
+
+        state.entropy_bits = static_cast<double>(state.length) * std::log2(static_cast<double>(char_count));
+    }
+
+    std::string rate_strength(const password_state& state) {
+        if (state.entropy_bits <= 40.0) {
+            return "very weak";
+        }
+        else if (state.entropy_bits <= 60) {
+            return "weak";
+        }
+        else if (state.entropy_bits <= 80) {
+            return "moderate";
+        }
+        else if (state.entropy_bits <= 100) {
+            return "strong";
+        }
+        else if (state.entropy_bits <= 128) {
+            return "very strong";
+        }
+        else {
+            return "insane";
+        }
     }
 }
