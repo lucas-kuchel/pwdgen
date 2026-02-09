@@ -1,0 +1,11 @@
+# intermediary
+build/
+out/
+
+# cache/settings
+.vscode/
+.cache/
+
+# macOS file indexing
+._*
+.DS_Store
