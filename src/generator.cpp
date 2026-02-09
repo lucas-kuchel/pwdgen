@@ -54,8 +54,7 @@ namespace generator {
 
         std::shuffle(state.product.begin(), state.product.end(), gen);
 
-        std::string password_chars = strutils::remove_duplicates(state.product);
-        std::size_t char_count = password_chars.size();
+        std::size_t char_count = full_pool.size();
 
         state.entropy_bits = static_cast<double>(state.length) * std::log2(static_cast<double>(char_count));
     }
